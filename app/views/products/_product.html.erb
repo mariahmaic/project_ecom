@@ -1,4 +1,7 @@
  <section class="product">
+ <% if product.image_filename.present? %>
+  <%= image_tag product.image_filename %>
+ <% end %>
     <h2><%= link_to product.name, store_product_path(product) %></h2>
     <div class="description">
       <%= product.description %>
