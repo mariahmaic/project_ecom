@@ -1,7 +1,6 @@
 class ProductsController < InheritedResources::Base
   def index
-    @products = Product.all
-    # @products = Product.all.paginate(page: params[:page], per_page: 5)
+    @products = Product.page(params[:page])
   end
 
   def new
