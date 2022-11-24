@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
+<%= link_to "New product", new_product_path %>
 
 <div id="products">
   <% @products.each do |product| %>
@@ -11,4 +12,4 @@
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<%# <%= will_paginate @products, renderer: WillPaginate::ActionView::LinkRenderer %> %>
