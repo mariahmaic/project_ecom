@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   root :to => 'store#index', :via => :get
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
 
