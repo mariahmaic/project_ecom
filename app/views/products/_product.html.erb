@@ -1,17 +1,9 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-</div>
+ <section class="product">
+    <h2><%= link_to product.name, store_product_path(product) %></h2>
+    <div class="description">
+      <%= product.description %>
+    </div>
+    <p class="price">
+      <%= number_to_currency product.price%>
+    </p>
+  </section>
