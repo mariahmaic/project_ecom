@@ -13,5 +13,7 @@ class StoreController < ApplicationController
 
   def search_results
     # Use product model to search
+    wildcard_keywords = '%' + params[:search_keywords] + '%'
+    @products = Product.where("name LIKE ?", wildcard_keywords)
   end
 end

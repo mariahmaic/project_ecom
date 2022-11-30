@@ -9,4 +9,10 @@
     <%= category.description %>
   </p>
 
+  <% category.products.each do |product| %>
+    <p>
+      <%= product.name %> | <%= link_to "View Product", product %>
+    </p>
+  <% end %>
+
 </div>
