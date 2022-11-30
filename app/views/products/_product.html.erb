@@ -9,7 +9,7 @@
       </p>
     <% end %>
     <% if product.image_filename.present? %>
-      <%= image_tag product.image_filename, :width => '150' %>
+      <%= link_to image_tag(product.image_filename, :width => '150'), product %>
     <% end %>
     <p class="price">
       <%= number_to_currency product.price%>
