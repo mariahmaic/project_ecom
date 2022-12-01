@@ -27,10 +27,13 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> %>
-      <div class="d-flex">
-      <%= form_tag search_results_path, method: :get do %>
-        <%= text_field_tag :search_keywords %>
-        <%= submit_tag 'Search' %>
+      <div>
+      <%= form_tag search_results_path, class: "d-flex", method: :get do %>
+      <span class= "">
+        <%= text_field_tag :search_keywords, nil, class: 'form-control', id: 'navSearch', placeholder: 'Search', width: "20px" %>
+        <%# <%= text_field_tag :search_keywords, class: "form-control me-2", type: "search", placeholder: "search" %>
+        </span>
+        <%= submit_tag 'Search', class: "btn btn-outline-success" %>
       <% end %>
       </div>
     </div>
