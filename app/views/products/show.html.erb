@@ -16,6 +16,10 @@
       <%= link_to image_tag(@product.image_filename, :width => '500'), @product %>
 <% end %>
 
+<p class="price">
+      <%= number_to_currency @product.price%>
+</p>
+
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>
