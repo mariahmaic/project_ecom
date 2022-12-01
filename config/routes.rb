@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :categories
   root :to => 'store#index', :via => :get
-  match 'store/:id' => 'store#show', :as => :store_product, :via => :get
+  get 'store/:id' => 'store#show', :as => :store_product, :via => :get
+
+  get 'search' => 'store#search', :as => 'search', :via => :get
+  get 'search_results' => 'store#search_results', :as => 'search_results', :via => :post
 
   resources :customers
   resources :products

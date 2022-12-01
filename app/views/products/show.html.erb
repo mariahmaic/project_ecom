@@ -1,6 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
+<%# <%= render @product %>
+
+<h2><%= link_to @product.name, store_product_path(@product) %></h2>
+    <div class="description">
+      <%= @product.description %>
+    </div>
+    <% if @product.category %>
+      <p>
+        <strong>Category:</strong> <%= @product.category.name %>
+      </p>
+    <% end %>
+
+<% if @product.image_filename.present? %>
+      <%= link_to image_tag(@product.image_filename, :width => '500'), @product %>
+<% end %>
 
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |

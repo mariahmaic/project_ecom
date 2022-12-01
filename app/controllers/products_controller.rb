@@ -5,12 +5,12 @@ class ProductsController < InheritedResources::Base
 
   def new
     @product = Product.new
-    @categories = Category.order(:name)
+    @categories = Category.all.order(:name)
   end
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.order(:name)
+    @categories = Category.all.order(:name)
   end
 
   private
