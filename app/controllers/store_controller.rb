@@ -5,6 +5,7 @@ class StoreController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    flash[:notice] = "Product edited."
   end
 
   def search
