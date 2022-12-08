@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
+<%= debug session[:cart] %>
 
 <%= link_to "New product", new_product_path %>
 
@@ -10,6 +11,7 @@
     <p>
       <%= link_to "Show this product", product %>
     </p>
+    <p><%= link_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
   <% end %>
 </div>
 
