@@ -1,6 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
+<details>
+  <summary>Shopping Cart</summary>
+  <% if @cart.empty? %>
+    <p>There are no items in your cart.</p>
+  <% else %>
+  <ul>
+    <% @cart.each do |product| %>
+      <li><%= product.name %> - <%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete %></li>
+      <% end %>
+  </ul>
+  <% end %>
+</details>
 
 <%= link_to "New product", new_product_path %>
 
@@ -10,6 +22,12 @@
     <p>
       <%= link_to "Show this product", product %>
     </p>
+    <% if @cart.include?(product) %>
+      <p>Product is already in your cart.</p>
+      <button type="button" class="btn btn-primary btn-sm"><%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete %></button>
+    <% else %>
+      <p><%= link_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
+    <% end %>
   <% end %>
 </div>
 
