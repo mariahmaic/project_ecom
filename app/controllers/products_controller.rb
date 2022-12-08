@@ -24,7 +24,7 @@ class ProductsController < InheritedResources::Base
   end
 
   def load_cart
-    @cart = session[:cart]
+    @cart = Product.find(session[:cart])
   end
 
   def increment_visit_count
