@@ -1,6 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
+<details>
+  <summary>Shopping Cart</summary>
+  <ul>
+    <% @cart.each do |product| %>
+      <li><%= product.name %></li>
+      <% end %>
+  </ul>
+</details>
 
 <%= link_to "New product", new_product_path %>
 
