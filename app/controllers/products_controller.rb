@@ -41,7 +41,6 @@ class ProductsController < InheritedResources::Base
   def new
     @product = Product.new
     @categories = Category.all.order(:name)
-    flash.now[:notice] = "Product has been created"
   end
 
   def edit
