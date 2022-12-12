@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'charges/new'
-  get 'charges/create'
+  # get 'charges/new'
+  # get 'charges/create'
   get 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
   get 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'search_results' => 'store#search_results', :as => 'search_results', :via => :post
   get 'about' => 'products#about'
 
+  resources :charges, only: [:new, :create]
   resources :customers
   resources :products
   resources :orders
