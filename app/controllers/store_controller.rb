@@ -14,7 +14,12 @@ class StoreController < ApplicationController
 
   def search_results
     # Use product model to search
+    if params[:search_categories].present?
+      wildcard_keywords = '%' + params[:search_keywords] + '%'
+      @products = Product.where(category_id: params[:search_categories]).where("name LIKE ?", wildcard_keywords)
+  else
     wildcard_keywords = '%' + params[:search_keywords] + '%'
     @products = Product.where("name LIKE ?", wildcard_keywords)
   end
+end
 end

@@ -23,16 +23,10 @@
           </ul>
         </li>
       </ul>
-      <%# <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> %>
       <div>
       <%= form_tag search_results_path, class: "d-flex", method: :get do %>
-      <span class= "">
-        <%= text_field_tag :search_keywords, nil, class: 'form-control', id: 'navSearch', placeholder: 'Search', width: "20px" %>
-        <%# <%= text_field_tag :search_keywords, class: "form-control me-2", type: "search", placeholder: "search" %>
-        </span>
+      <%= select_tag :search_categories, options_for_select(Category.all.map{|i| [i.name, i.id]}), class:"form-control", :include_blank => 'name of your blank prompt' %>
+        <%= text_field_tag :search_keywords, nil, class: 'form-control', id: 'navSearch', placeholder: 'Search' %>
         <%= submit_tag 'Search', class: "btn btn-outline-success" %>
       <% end %>
       </div>

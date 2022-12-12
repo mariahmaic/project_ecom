@@ -9,14 +9,13 @@
       </p>
     <% end %>
     <% if product.image.present? %>
-      <%= link_to image_tag(product.image, :width => '150'), product %>
+      <%= link_to image_tag(product.image, class: "img-fluid"), product %>
     <% end %>
     <p class="price">
       <%= number_to_currency product.price%>
     </p>
     <p><%= link_to "Show this product", product %></p>
-    <% if @cart.include?(product) %>
-      <%# <p>Product is already in your cart.</p> %>
+    <% if @cart&.include?(product) %>
       <button type="button" class="btn btn-primary btn-sm"><%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete %></button>
     <% else %>
       <p><%= link_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
