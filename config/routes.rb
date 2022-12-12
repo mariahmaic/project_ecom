@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+  get 'charges/create'
   get 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
   get 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
 
