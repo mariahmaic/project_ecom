@@ -14,10 +14,10 @@
     <p class="price">
       <%= number_to_currency product.price%>
     </p>
-    <p><%= link_to "Show this product", product %></p>
+    <p><%= link_to "Show this product", product, class:"btn btn-secondary" %></p>
     <% if @cart&.include?(product) %>
-      <button type="button" class="btn btn-primary btn-sm"><%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete %></button>
+      <%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete, class:"btn btn-danger" %>
     <% else %>
-      <p><%= link_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
+      <%= link_to 'add to cart', add_to_cart_path(product.id), method: :post, class:"btn btn-primary" %>
     <% end %>
   </section>
