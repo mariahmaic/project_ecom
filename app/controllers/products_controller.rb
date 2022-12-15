@@ -48,10 +48,7 @@ class ProductsController < InheritedResources::Base
     @categories = Category.all.order(:name)
   end
 
-  private
-
-    def product_params
-      params.require(:product).permit(:name, :price, :description, :category_id, :image)
-    end
-
+  def product_params
+    params.require(:product).permit(:name, :price, :description, :category_id, :image)
+  end
 end
